@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Button } from "./components/Button";
+import Button from "./components/Button";
 
 const App = () => {
   const [result, setResult] = useState("");
@@ -10,7 +10,8 @@ const App = () => {
   };
 
   const clickHandler2 =(event) => {
-    setResult((-1 * eval(result)).toString()); 
+    var res = (-1 * eval(result)).toString();
+    setResult(res); 
   };
 
   const clearDisplay = () => {
@@ -18,7 +19,8 @@ const App = () => {
   };
   const Calculate = () => {
     let finalResult = transformExpression();
-    setResult(eval(finalResult).toString());
+    let res = eval(finalResult).toString()
+    setResult(res);
   };
   const transformExpression = () => {
     let tmp = result.replace("÷", "/").replace("x", "*");
